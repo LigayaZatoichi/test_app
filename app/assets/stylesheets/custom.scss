@@ -1,9 +1,25 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-/* VARIABLES */
+/* VARIABLES AND MIXINS */
+
 $white: #fff;
 $gray-medium-light: #eaeaea;
+
+
+@mixin box_sizing {
+  -moz-boxing-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+
+
+
+
+
+
+
 
 /* universal */
 
@@ -100,4 +116,15 @@ footer ul {
 footer ul li {
   float: left;
   margin-left: 15px;
+}
+
+
+/* MISCELLANEOUS */
+
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box_sizing;
 }
