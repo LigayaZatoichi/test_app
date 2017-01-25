@@ -4,8 +4,12 @@ dave:
   name: Dave Ewaliko
   email: braddahdave@example.com
   password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: <%= Time.zone.now  %>
 
 thedude:
   name: The Dude
   email: thedude@abides.com
   password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: <%= Time.zone.now  %>
