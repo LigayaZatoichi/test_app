@@ -46,6 +46,10 @@ class User < ApplicationRecord
     BCrypt::Password.new(digest).is_password?(token)
   end
 
+# Defines a proto-feed.
+  def feed
+    Micropost.where("user_id = ?", id)
+  end
 
   private
     def create_activation_digest

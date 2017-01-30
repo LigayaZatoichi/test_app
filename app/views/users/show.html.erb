@@ -11,6 +11,7 @@
   </aside>
   <div class="col-md-8">
     <h3>Micropost (<%= @user.microposts.count %>)</h3>
+    <%= will_paginate @microposts %>
     <ol class="microposts">
       <%= render @microposts %>
     </ol>
