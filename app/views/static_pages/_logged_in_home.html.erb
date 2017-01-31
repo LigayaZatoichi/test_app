@@ -9,8 +9,8 @@
   </aside>
   <div class="col-md-8">
     <h3>Micropost Feed</h3>
-    <%= will_paginate @feed_items if @feed_items.any? %>
+    <%= will_paginate @feed_items, :params => {:controller => 'static_pages', :action =>'home'} if @feed_items.any? %>
     <%= render 'shared/feed' %>
-    <%= will_paginate @feed_items if @feed_items.any? %>
+    <%= will_paginate @feed_items, :params => {:controller => 'static_pages', :action =>'home'} if @feed_items.any? %>
   </div>
 </div>
