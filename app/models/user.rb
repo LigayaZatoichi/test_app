@@ -50,9 +50,10 @@ class User < ApplicationRecord
     BCrypt::Password.new(digest).is_password?(token)
   end
 
-# Defines a proto-feed.
+# Defines a feed.
   def feed
-    Micropost.where("user_id = ?", id)
+    following_ids = "SELECT followed_id FROM relationships WHERE follower_id = :user_id"
+    Micropost.where("user_id IN (#{following_ids}) OR user_id = :user_id", user_id: id)
   end
 
 # Follows a user.
@@ -61,7 +62,7 @@ class User < ApplicationRecord
   end
 
   # Unfollows a user.
-  def unfollow
+  def unfollow(other_user)
     following.delete(other_user)
   end
 
